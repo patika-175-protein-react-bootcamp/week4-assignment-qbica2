@@ -1,14 +1,11 @@
 import React from "react";
 import "./App.css";
-
-import Landing from "./pages/Landing";
+import Rooter from "./rooter/rooter";
 
 
 function App() {
   return (
-    <div>
-      <Landing />
-    </div>
+    <Rooter />
   );
 }
 
