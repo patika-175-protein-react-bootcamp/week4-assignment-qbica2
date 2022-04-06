@@ -5,7 +5,6 @@ import TitleVector from "../constants/TitleVector";
 import Subtitle from "../components/Subtitle";
 import ButtonVector from "../constants/ButtonVector";
 
-
 function Landing() {
   return (
     <div className={style.landing}>
