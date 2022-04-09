@@ -8,23 +8,26 @@ import { useNavigate, useParams } from "react-router-dom";
 function Questions() {
   let navigate = useNavigate();
   let { id } = useParams();
-
+  // Contextten gelen veriler
   const { questions, setQuestions, createQuestion , firstNumber, secondNumber, correctAnswer, firstFalseAnswer, secondFalseAnswer , setSelectedAnswer, click, setClick, score, setScore, tourCorrectAnswer, setTourCorrectAnswer,tour } = useContext(QuestionsContext);
-
+  // Sadece bu page için geçerli stateler
   const [backgroundColor, setBackgroundColor] = useState("dark");
   const [optionArray, setOptionArray] = useState([]);
+  // Verilen arrayin elemanlarının yerini random değiştiren fonksiyon
   const shuffledArr = (arr) => arr.sort(() => 0.5 - Math.random());
   
-  
+  // id her değiştiğinde yeni soru üretiyoruz
   useEffect(() => {
     createQuestion(id);
   }, [id]);
 
+  // cevap verdikten sonra beklenen 3saniyede şıkların yerinin değişmemesi için kullandığım yapı 
   useEffect(() => {
     const arr = [firstFalseAnswer, secondFalseAnswer, correctAnswer];
     setOptionArray(x=> click ? x :shuffledArr(arr));
-  }, [click,firstNumber,secondNumber,firstFalseAnswer,secondFalseAnswer,correctAnswer]);
+  }, [click,firstFalseAnswer,secondFalseAnswer,correctAnswer]);
 
+  // Sıradaki soruya geçmemizi sağlayan fonksiyon;3saniye bekleme, cevaba göre arka plan renginin değişmesi, score un hesaplanması gibi işlemler bu fonksiyon içerisinde yapılıyor
   const handleNextQuestion = ( id, value ) => {
     const question = {
       id: id,

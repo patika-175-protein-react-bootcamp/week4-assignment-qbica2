@@ -10,14 +10,14 @@ import { useNavigate } from "react-router-dom";
 
 function Results() {
   let navigate = useNavigate();
-  const { questions, setQuestions,totalCorrectAnswer,tourCorrectAnswer,setTourCorrectAnswer,setTotalCorrectAnswer, setTour, score, setScore } = useContext(QuestionsContext);
-
+  const { questions, setQuestions, tourCorrectAnswer, setTourCorrectAnswer, setTour, score, setScore } = useContext(QuestionsContext);
+  //local storage a kayıt edeceğimiz veriler
   const totalScore = Number(localStorage.getItem("totalScore"));
   const totalQuestions =Number(localStorage.getItem("totalQuestions"));
   const totalCorrect = Number(localStorage.getItem("totalCorrectAnswer"));
 
+  //component render edildiği gibi verileri kayıt ediyoruz.
   useEffect(() => {
-    setTotalCorrectAnswer(totalCorrectAnswer+tourCorrectAnswer);
     updateLocalStorage();
   }, []);
 

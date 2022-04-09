@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function Landing() {
   let navigate = useNavigate();
-
+  // Landing page için local storagetan aldığım veriler.
   const totalScore = Number(localStorage.getItem("totalScore"));
   const totalQuestions = Number(localStorage.getItem("totalQuestions"));
   const totalCorrectAnswer = Number(localStorage.getItem("totalCorrectAnswer"));
