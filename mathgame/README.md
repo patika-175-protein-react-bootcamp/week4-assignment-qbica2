@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Hafta 4- Mathgame
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Live
 
-## Available Scripts
+<p font-size="12" > Şuan canlıda değil en kısa sürede alacağım </p>
 
-In the project directory, you can run:
+## Start & Correct Answer
 
-### `npm start`
+<br>
+<img src="https://media.giphy.com/media/NErk1AIbW8yv0qM1o2/giphy.gif" width="300" height="250" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## False Answer
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
+<img src="https://media.giphy.com/media/l4LYn0haVquM7dj6aP/giphy.gif" width="300" height="250" />
 
-### `npm test`
+## Result
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<img src="https://media.giphy.com/media/0peZmdNnA2iRM3h8pw/giphy.gif" width="300" height="250" />
 
-### `npm run build`
+## İsterler
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [X] Local storageta tutulan total score-total questions-total correct answers verileri landing pagete gösterilmeli. Oyuncu oyunu bitirirse bu veriler güncellenmeli.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [X] Sayfalarda img yerine SVG kullanılmalı.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [X] Her turda random sorular gelmeli.(1-10arası sayıların çarpımı)
 
-### `npm run eject`
+- [X] Cevap şıkları bir doğru iki yanlış şık içermeli
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [X] Yanlış şıklar birbirine eşit olmamalı.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [X] Yanlış şıklar sorudaki sayıların bir fazlasının ya da bir eksiğinin çarpımı şeklinde hesaplanmalı.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [X] Kullanıcı bir şık seçtiğinde 3saniye o ekran kalmalı ve şıklar bu sürede disable olmalı.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [X] Kullanıcı yanlış şıkkı seçerse arkaplan kırmızı olmalı ve score değişmemeli.
 
-## Learn More
+- [X] Kullanıcı doğru şıkkı seçerse arkaplan yeşil olmalı. Doğru cevap sayısı 1 arttırılmalı. Score u doğru cevabın karekökü(üste yuvarla) kadar arttırılmalı.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [X] 10 soru tamamlandıktan sonra bu turdaki veriler local storage a eklenmeli. Bu 10 soru result page sayfasında gösterilmeli.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [X] Restarta basılması halinde tur sayısı 1 arttırılarak aynı işlemler tekrarlanmalı.
