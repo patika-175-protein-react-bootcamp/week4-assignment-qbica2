@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
 import Rooter from "./rooter/rooter";
-
+import { QuestionsProvider } from "./contexts/questions";
 
 function App() {
-  return (
-    <Rooter />
+  return (  
+    <QuestionsProvider>
+      <Rooter />
+    </QuestionsProvider>
   );
 }
 

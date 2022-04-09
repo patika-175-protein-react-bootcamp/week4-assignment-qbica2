@@ -1,7 +1,7 @@
 .questions{
     width: 100%;
     height: 160vh;;
-    background-color: #2D2D2D;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +12,9 @@
         line-height: 64px;
         display: flex;
         align-self: flex-end;
+        .option{
+            margin:10px;
+        }
     }
     .container{
         width: 100%;
@@ -31,7 +34,7 @@
                 width: 210px;
                 border: none;
                 background-color: transparent;
-                
+                cursor: pointer;
                 &:nth-child(1){
                     align-self: start;
                     position: relative;
@@ -53,4 +56,13 @@
     }
     
     
+}
+.dark{
+    background-color: #2D2D2D;
+}
+.red{
+    background-color: #FF0000;
+}
+.green{
+    background-color: #00BF63;
 }

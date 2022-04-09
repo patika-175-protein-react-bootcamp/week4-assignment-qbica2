@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect} from "react";
 import style from "../styles/results.module.css";
 import Title from "../components/Title";
 import TitleVector from "../constants/TitleVector";
 import Subtitle from "../components/Subtitle";
 import ButtonVector from "../constants/ButtonVector";
 import Answers from "../components/Answers";
+import QuestionsContext from "../contexts/questions";
+import { useNavigate } from "react-router-dom";
 
 function Results() {
+  let navigate = useNavigate();
+  const { questions, setQuestions,totalCorrectAnswer,tourCorrectAnswer,setTourCorrectAnswer,setTotalCorrectAnswer, setTour, score, setScore } = useContext(QuestionsContext);
+
+  const totalScore = Number(localStorage.getItem("totalScore"));
+  const totalQuestions =Number(localStorage.getItem("totalQuestions"));
+  const totalCorrect = Number(localStorage.getItem("totalCorrectAnswer"));
+
+  useEffect(() => {
+    setTotalCorrectAnswer(totalCorrectAnswer+tourCorrectAnswer);
+    updateLocalStorage();
+  }, []);
+
+  const handleRestart = () => {
+    setTour(x=>x+1);
+    setScore(0);
+    setTourCorrectAnswer(0);
+    setQuestions([]);
+    navigate("/questions/1");
+  };
+
+  const updateLocalStorage = () => {
+    localStorage.setItem("totalScore", totalScore + score);
+    localStorage.setItem("totalQuestions", totalQuestions + 10);
+    localStorage.setItem("totalCorrectAnswer", totalCorrect + tourCorrectAnswer);
+  };
+
   return (
     <div className={style.results}>
       <div className={style.container}>
@@ -15,10 +43,10 @@ function Results() {
             <Title title="Final" />
             <TitleVector width={228} height={8} color="#FF0000"/>
           </div>
-          <Subtitle subtitle="Points:" score={129}/>
+          <Subtitle subtitle="Points:" score={score}/>
           <Subtitle subtitle="Questions:" score={10}/>
-          <Subtitle subtitle="Correct Answers:" score={8}/>
-          <button>
+          <Subtitle subtitle="Correct Answers:" score={tourCorrectAnswer}/>
+          <button onClick={()=>handleRestart()}>
             <ButtonVector width= {447} height= {139} text="Restart"/>
           </button>
         </div>
@@ -27,16 +55,11 @@ function Results() {
             <div className={style.title}>All Questions</div> 
             <TitleVector width={350} height={8} color="#FF0000"/>
           </div>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={false}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={false}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={false}/>
-          <Answers firstNumber={3} secondNumber={4} answer={12} boolean={true}/>
+          <>
+            {questions.map((question) => (
+              <Answers firstNumber={question.firstNumber} secondNumber={question.secondNumber}   answer={question.selectedAnswer} boolean={question.selectedAnswer === question.correctAnswer ? true : false} key={question.id}/>
+            ))}
+          </>
         </div>
       </div>
     </div>

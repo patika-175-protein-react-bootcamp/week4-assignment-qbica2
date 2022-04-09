@@ -9,7 +9,7 @@ function Rooter() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/results" element={<Results />} />
-      <Route path="/questions" element={<Questions />} />
+      <Route path="/questions/:id" element={<Questions />} />
     </Routes>
   );
 }

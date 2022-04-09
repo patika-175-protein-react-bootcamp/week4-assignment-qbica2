@@ -12,8 +12,8 @@ function Blackboard( {firstNumber, secondNumber} ) {
 }
 
 Blackboard.propTypes = {
-  firstNumber: PropTypes.number.isRequired,
-  secondNumber: PropTypes.number.isRequired,
+  firstNumber: PropTypes.number,
+  secondNumber: PropTypes.number,
 };
 
 export default Blackboard;

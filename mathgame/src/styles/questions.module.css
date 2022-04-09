@@ -1,7 +1,6 @@
 .questions {
   width: 100%;
   height: 160vh;
-  background-color: #2D2D2D;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,6 +24,10 @@
   display: flex;
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.questions .header .option {
+  margin: 10px;
 }
 
 .questions .container {
@@ -60,6 +63,7 @@
   width: 210px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .questions .container .rightContainer button:nth-child(1) {
@@ -80,5 +84,17 @@
 .questions .container .rightContainer button:nth-child(3) {
   position: relative;
   left: -50px;
+}
+
+.dark {
+  background-color: #2D2D2D;
+}
+
+.red {
+  background-color: #FF0000;
+}
+
+.green {
+  background-color: #00BF63;
 }
 /*# sourceMappingURL=questions.module.css.map */
