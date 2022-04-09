@@ -1,19 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import style from "../styles/landing.module.css";
-import Title from "../components/Title";
+import Title from "../constants/Title";
 import TitleVector from "../constants/TitleVector";
-import Subtitle from "../components/Subtitle";
+import Subtitle from "../constants/Subtitle";
 import ButtonVector from "../constants/ButtonVector";
 import { useNavigate } from "react-router-dom";
-import QuestionsContext from "../contexts/questions";
 
 function Landing() {
   let navigate = useNavigate();
-  const { questions } = useContext(QuestionsContext);
-  console.log(questions);
-  const totalScore = localStorage.getItem("totalScore");
-  const totalQuestions = localStorage.getItem("totalQuestions");
-  const totalCorrectAnswer = localStorage.getItem("totalCorrectAnswer");
+
+  const totalScore = Number(localStorage.getItem("totalScore"));
+  const totalQuestions = Number(localStorage.getItem("totalQuestions"));
+  const totalCorrectAnswer = Number(localStorage.getItem("totalCorrectAnswer"));
+
   return (
     <div className={style.landing}>
       <div className={style.container}> 

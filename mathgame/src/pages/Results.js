@@ -1,8 +1,8 @@
 import React, { useContext, useEffect} from "react";
 import style from "../styles/results.module.css";
-import Title from "../components/Title";
+import Title from "../constants/Title";
 import TitleVector from "../constants/TitleVector";
-import Subtitle from "../components/Subtitle";
+import Subtitle from "../constants/Subtitle";
 import ButtonVector from "../constants/ButtonVector";
 import Answers from "../components/Answers";
 import QuestionsContext from "../contexts/questions";

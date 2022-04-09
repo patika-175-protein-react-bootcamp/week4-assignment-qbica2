@@ -4,9 +4,8 @@ import React, { createContext, useState, useEffect } from "react";
 const QuestionsContext = createContext();
 
 export const QuestionsProvider = ( { children }) => {
+  
   const array= [...Array(10).keys()].map(x=>x+1); 
-
-  const [click, setClick] = useState(false);
 
   const getRandom = (arr) => {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -23,6 +22,7 @@ export const QuestionsProvider = ( { children }) => {
   const [tour, setTour] = useState(1);
   const [tourCorrectAnswer, setTourCorrectAnswer] = useState(0);
   const [totalCorrectAnswer, setTotalCorrectAnswer] = useState(0);
+  const [click, setClick] = useState(false);
 
   const options=[
     (firstNumber+1)*secondNumber,

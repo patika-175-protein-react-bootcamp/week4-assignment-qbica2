@@ -1,6 +1,6 @@
 import React,{ useContext, useState , useEffect } from "react";
 import style from "../styles/questions.module.css";
-import Blackboard from "../constants/Blackboard";
+import Blackboard from "../components/Blackboard";
 import Options from "../components/Options";
 import QuestionsContext from "../contexts/questions";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,14 +12,18 @@ function Questions() {
   const { questions, setQuestions, createQuestion , firstNumber, secondNumber, correctAnswer, firstFalseAnswer, secondFalseAnswer , setSelectedAnswer, click, setClick, score, setScore, tourCorrectAnswer, setTourCorrectAnswer,tour } = useContext(QuestionsContext);
 
   const [backgroundColor, setBackgroundColor] = useState("dark");
-
+  const [optionArray, setOptionArray] = useState([]);
   const shuffledArr = (arr) => arr.sort(() => 0.5 - Math.random());
-  const arr = [firstFalseAnswer, secondFalseAnswer, correctAnswer];
   
-
+  
   useEffect(() => {
     createQuestion(id);
   }, [id]);
+
+  useEffect(() => {
+    const arr = [firstFalseAnswer, secondFalseAnswer, correctAnswer];
+    setOptionArray(x=> click ? x :shuffledArr(arr));
+  }, [click,firstNumber,secondNumber,firstFalseAnswer,secondFalseAnswer,correctAnswer]);
 
   const handleNextQuestion = ( id, value ) => {
     const question = {
@@ -89,7 +93,7 @@ function Questions() {
         </div>
         <div className={style.rightContainer}>
           {
-            shuffledArr(arr).map((item, i) => 
+            optionArray.map((item, i) => 
               (<button  key={i} disabled={click} onClick={()=>handleNextQuestion( id, item)}><Options number={item} click={click}/></button>)
             )
           }
